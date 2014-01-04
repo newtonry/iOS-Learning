@@ -102,7 +102,7 @@
     [myImage setImageWithURL:[NSURL URLWithString:myLook.thumb]];
 
 //    NSLog(@"%@",myLook.look_id);
-    NSString *message = [myLook.look_id class];
+    NSString *message = [NSString stringWithFormat:@"Look id %d",[myLook.look_id intValue]];
     
     [firstLine setText:message];
     
