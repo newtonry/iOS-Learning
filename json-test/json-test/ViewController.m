@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Look.h"
+#import "Connection.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ViewController ()
@@ -97,6 +98,7 @@
     
     Look *myLook = [Look getLookById:4];
     
+    [Connection makePostRequest:@"http://localhost:3000/test"];
 
 
     [myImage setImageWithURL:[NSURL URLWithString:myLook.thumb]];

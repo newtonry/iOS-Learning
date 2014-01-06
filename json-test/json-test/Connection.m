@@ -26,4 +26,24 @@
     return res;
 }
 
+
++(NSDictionary*)makePostRequest:(NSString*)reqURLStr
+{
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:reqURLStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString = @"message=ThisIsAMessage";
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+
+    
+    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request
+                                                                 delegate:self];
+    
+    return [[NSDictionary alloc] init];
+}
+
+
 @end

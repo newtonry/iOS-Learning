@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ImageHelpers.h"
 
 @interface ViewController ()
 
@@ -63,7 +64,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.imageView.image = chosenImage;
+
+    
+    UIImage *resizedImage = [ImageHelpers imageWithImage:chosenImage scaledToSize:CGSizeMake(100, 100)];
+
+    self.imageView.frame = CGRectMake(0, 0, 100, 100);
+    self.imageView.image = resizedImage;
+//    NSLog([chosenImage size]);
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }

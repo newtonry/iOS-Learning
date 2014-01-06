@@ -35,8 +35,6 @@
 //    NSLog(@"%@",resp);
 //
     
-    
-
     return fetchedLook;
 }
 

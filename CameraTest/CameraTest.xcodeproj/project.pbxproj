@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188351F1187B4795004D39D6 /* ImageHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 188351F0187B4795004D39D6 /* ImageHelpers.m */; };
 		188E9C57187866DD002DED9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188E9C56187866DD002DED9D /* Foundation.framework */; };
 		188E9C59187866DD002DED9D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188E9C58187866DD002DED9D /* CoreGraphics.framework */; };
 		188E9C5B187866DD002DED9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188E9C5A187866DD002DED9D /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		188351EF187B4795004D39D6 /* ImageHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelpers.h; sourceTree = "<group>"; };
+		188351F0187B4795004D39D6 /* ImageHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelpers.m; sourceTree = "<group>"; };
 		188E9C53187866DD002DED9D /* CameraTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E9C56187866DD002DED9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		188E9C58187866DD002DED9D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 				188E9C68187866DD002DED9D /* Main.storyboard */,
 				188E9C6B187866DD002DED9D /* ViewController.h */,
 				188E9C6C187866DD002DED9D /* ViewController.m */,
+				188351EF187B4795004D39D6 /* ImageHelpers.h */,
+				188351F0187B4795004D39D6 /* ImageHelpers.m */,
 				188E9C6E187866DD002DED9D /* Images.xcassets */,
 				188E9C5D187866DD002DED9D /* Supporting Files */,
 			);
@@ -252,6 +257,7 @@
 				188E9C6D187866DD002DED9D /* ViewController.m in Sources */,
 				188E9C67187866DD002DED9D /* AppDelegate.m in Sources */,
 				188E9C63187866DD002DED9D /* main.m in Sources */,
+				188351F1187B4795004D39D6 /* ImageHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +466,7 @@
 				188E9C87187866DE002DED9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		188E9C88187866DE002DED9D /* Build configuration list for PBXNativeTarget "CameraTestTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +475,7 @@
 				188E9C8A187866DE002DED9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

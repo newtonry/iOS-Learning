@@ -11,5 +11,6 @@
 @interface Connection : NSObject
 
 +(NSDictionary*)makeAPICall:(NSString*) reqURLStr;
++(NSDictionary*)makePostRequest:(NSString*) reqURLStr;
 
 @end
