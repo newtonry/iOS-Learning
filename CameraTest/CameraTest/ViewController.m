@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ImageHelpers.h"
+#import "Connection.h"
 
 @interface ViewController ()
 
@@ -67,6 +68,22 @@
 
     
     UIImage *resizedImage = [ImageHelpers imageWithImage:chosenImage scaledToSize:CGSizeMake(100, 100)];
+
+    
+    
+    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(resizedImage, .1)];
+    NSString* imageString = [NSString stringWithFormat:@"{\"image\": \"%@\", \"authenticity_token\": \"\", \"utf8\": \"✓\"}", imageData];
+    //encoded json string
+    NSData* data = [imageString dataUsingEncoding:NSUTF8StringEncoding];
+    
+//    NSLog(@"%@", data);
+    NSString *requestString = [@"http://localhost:3000/test?image=" stringByAppendingString:imageString];
+    
+    NSLog(@"%@", requestString);
+    [Connection makePostRequest:@"http://localhost:3000/test"];
+    
+    
+    
 
     self.imageView.frame = CGRectMake(0, 0, 100, 100);
     self.imageView.image = resizedImage;

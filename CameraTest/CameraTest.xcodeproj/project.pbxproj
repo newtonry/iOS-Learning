@@ -22,6 +22,7 @@
 		188E9C78187866DD002DED9D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188E9C5A187866DD002DED9D /* UIKit.framework */; };
 		188E9C80187866DE002DED9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 188E9C7E187866DE002DED9D /* InfoPlist.strings */; };
 		188E9C82187866DE002DED9D /* CameraTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188E9C81187866DE002DED9D /* CameraTestTests.m */; };
+		18AE1ECF187CDC040084DA70 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AE1ECE187CDC040084DA70 /* Connection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		188E9C7D187866DD002DED9D /* CameraTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CameraTestTests-Info.plist"; sourceTree = "<group>"; };
 		188E9C7F187866DE002DED9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		188E9C81187866DE002DED9D /* CameraTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraTestTests.m; sourceTree = "<group>"; };
+		18AE1ECD187CDC040084DA70 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = "../../../iOS-Learning/CameraTest/CameraTest/Connection.h"; sourceTree = "<group>"; };
+		18AE1ECE187CDC040084DA70 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = "../../../iOS-Learning/CameraTest/CameraTest/Connection.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				188E9C68187866DD002DED9D /* Main.storyboard */,
 				188E9C6B187866DD002DED9D /* ViewController.h */,
 				188E9C6C187866DD002DED9D /* ViewController.m */,
+				18AE1ECD187CDC040084DA70 /* Connection.h */,
+				18AE1ECE187CDC040084DA70 /* Connection.m */,
 				188351EF187B4795004D39D6 /* ImageHelpers.h */,
 				188351F0187B4795004D39D6 /* ImageHelpers.m */,
 				188E9C6E187866DD002DED9D /* Images.xcassets */,
@@ -258,6 +263,7 @@
 				188E9C67187866DD002DED9D /* AppDelegate.m in Sources */,
 				188E9C63187866DD002DED9D /* main.m in Sources */,
 				188351F1187B4795004D39D6 /* ImageHelpers.m in Sources */,
+				18AE1ECF187CDC040084DA70 /* Connection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
