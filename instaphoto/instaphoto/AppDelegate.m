@@ -10,22 +10,35 @@
 #import "FeedViewController.h"
 #import "FavoritesViewController.h"
 #import "ProfileViewController.h"
+#import "FeedTableViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+ 
     //Adding the view controllers
     FeedViewController *feedViewController = [[FeedViewController alloc] init];
-    FavoritesViewController *favoritesViewController = [[FavoritesViewController alloc] init];
-    ProfileViewController *profileViewController = [[ProfileViewController alloc] init];
+    //UINavigation bar at top
+    UINavigationController *feedNavController = [[UINavigationController alloc] initWithRootViewController:feedViewController];
+
+    FeedTableViewController *feedTableViewController = [[FeedTableViewController alloc] init];
+    //UINavigation bar at top
+    UINavigationController *feedTableNavController = [[UINavigationController alloc] initWithRootViewController:feedTableViewController];
+
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[feedViewController, favoritesViewController, profileViewController]];
+    
+    ProfileViewController *profileViewController = [[ProfileViewController alloc] init];
+    UINavigationController *profileNavController = [[UINavigationController alloc] initWithRootViewController:profileViewController];
+    
+    FavoritesViewController *favoritesViewController = [[FavoritesViewController alloc] init];
+    UINavigationController *favoritesNavController = [[UINavigationController alloc] initWithRootViewController:favoritesViewController];
+    
+    UITabBarController *tabController = [[UITabBarController alloc] init];
+    tabController.viewControllers = @[feedNavController, favoritesNavController, profileNavController, feedTableNavController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = tabBarController;
-    // Override point for customization after application launch.
+    self.window.rootViewController = tabController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

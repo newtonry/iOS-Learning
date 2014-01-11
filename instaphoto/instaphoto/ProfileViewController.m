@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ProfileViewController ()
 
@@ -28,42 +29,86 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://tryios.codeschool.com/userProfile.json"];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation
+                                         JSONRequestOperationWithRequest:request
+                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON){
+                                             self.userProfile = JSON;
+                                             [self requestSuccessful];
+                                         }
+                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON){NSLog(@"%@", error.localizedDescription);}];
+    
+    [operation start];
+}
+
+- (void) requestSuccessful
+{
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    self.scrollView.contentSize = CGSizeMake(320, 480);
+    self.scrollView.contentSize = CGSizeMake(320,480);
     
-    UIImageView *higgieView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"higgie_profile_image"]];
-    higgieView.frame = CGRectMake(20,20,100,114);
+    UIImageView *profileImageView = [[UIImageView alloc] init];
+    profileImageView.frame = CGRectMake(20, 20, 100, 114);
     
-    [self.scrollView addSubview:higgieView];
+    UIImage *placeholder = [UIImage imageNamed:@"placeholder.jpg"];
+    NSURL *imageURL = [NSURL URLWithString:self.userProfile[@"profilePhoto"]];
     
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,140,280,40)];
-    nameLabel.text = @"Name: Gregg Pollack";
+    [profileImageView setImageWithURL:imageURL placeholderImage:placeholder];
+    profileImageView.image = placeholder;
+    
+    [self.scrollView addSubview:profileImageView];
+    
+    UILabel *nameLabel = [[UILabel alloc] init];
+    nameLabel.frame = CGRectMake(20,140,280,40);
+    nameLabel.text = [NSString stringWithFormat:@"Name: %@ %@", self.userProfile[@"firstName"], self.userProfile[@"lastName"]];
+    
     [self.scrollView addSubview:nameLabel];
     
-    UILabel *cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,200,280,40)];
-    cityLabel.text = @"From: Orlando";
+    UILabel *cityLabel = [[UILabel alloc] init];
+    cityLabel.frame = CGRectMake(20,200,280,40);
+    cityLabel.text = [NSString stringWithFormat:@"From: %@", self.userProfile[@"city"]];
+    
     [self.scrollView addSubview:cityLabel];
     
-    UITextView *biography = [[UITextView alloc] initWithFrame:CGRectMake(12,260,300,180)];
-    biography.font = [UIFont fontWithName:@"Helvetica" size:15];
+    UITextView *biography = [[UITextView alloc] init];
+    biography.frame = CGRectMake(12,260,300,180);
+    biography.font = [UIFont fontWithName:@"Helvetica" size:17];
     biography.editable = NO;
-    biography.text = @"Gregg Pollack is the founder of Envy Labs and teacher of multiple courses at Code School. Code School teaches web technologies in the comfort of your browser with video lessons, coding challenges, and screencasts.";
+    biography.text = self.userProfile[@"biography"];
+    
     [self.scrollView addSubview:biography];
     
-    UILabel *memberSinceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,440,280,40)];
-    memberSinceLabel.text = @"Member since November 2012";
+    UILabel *memberSinceLabel = [[UILabel alloc] init];
+    memberSinceLabel.frame = CGRectMake(20,440,280,40);
+    memberSinceLabel.text = [NSString stringWithFormat:@"Member since %@", self.userProfile[@"memberSince"]];;
+    
     [self.scrollView addSubview:memberSinceLabel];
     
-    UILabel *twitterName = [[UILabel alloc] initWithFrame:CGRectMake(20,500,280,40)];
-    twitterName.text = @"Twitter name is bob";
-	[self.scrollView addSubview:twitterName];
-    
     [self.view addSubview:self.scrollView];
-    
 }
+
+//creates a new subview controller to zoom in on image and push it to navigation controller
+- (void) showZoomedProfile: (UIButton *) sender
+{
+    UIViewController *imageViewController = [[UIViewController alloc] init];
+    imageViewController.view.frame = self.view.frame;
+    imageViewController.title = @"Profile Image";
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"snakesnladders.jpg"]];
+    imageView.frame = imageViewController.view.frame;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [imageViewController.view addSubview:imageView];
+    
+    [self.navigationController pushViewController:imageViewController animated:YES];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
