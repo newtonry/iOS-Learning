@@ -25,7 +25,8 @@ http://stackoverflow.com/questions/5669322/turn-off-csrf-token-in-rails-3
 **Basic camera app** - http://www.appcoda.com/ios-programming-camera-iphone-app/
 **UIImage resize** - http://stackoverflow.com/questions/2658738/the-simplest-way-to-resize-an-uiimage
 
-=======
 **Fundamentals & Structure** - https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/index.html
 **Camera** - http://www.appcoda.com/ios-programming-camera-iphone-app/
 **Setting up on live device** - http://mobile.tutsplus.com/tutorials/iphone/how-to-test-your-apps-on-physical-ios-devices/
+
+**Custom TableViewCells** - http://www.appcoda.com/customize-table-view-cells-for-uitableview/
