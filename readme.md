@@ -29,4 +29,7 @@ http://stackoverflow.com/questions/5669322/turn-off-csrf-token-in-rails-3
 **Camera** - http://www.appcoda.com/ios-programming-camera-iphone-app/
 **Setting up on live device** - http://mobile.tutsplus.com/tutorials/iphone/how-to-test-your-apps-on-physical-ios-devices/
 
+#####Views
+**Background Image for Buttons appearing blue** http://stackoverflow.com/questions/18133465/setting-uibutton-image-results-in-blue-button-in-ios-7
 **Custom TableViewCells** - http://www.appcoda.com/customize-table-view-cells-for-uitableview/
+**Remove status bar** - http://stackoverflow.com/questions/18971496/hiding-status-bar-ios-7
